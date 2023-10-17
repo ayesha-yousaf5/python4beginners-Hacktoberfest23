@@ -1,0 +1,55 @@
+# create the game board and define the starting positions for each piece
+def create_board():
+    board = []
+    for i in range(8):
+        row = []
+        for j in range(8):
+            if (i + j) % 2 == 0:
+                row.append(' ')
+            else:
+                row.append('#')
+        board.append(row)
+    return board
+
+def place_pieces(board):
+    # Place pawns
+    for i in range(8):
+        board[1][i] = 'P'
+        board[6][i] = 'p'
+
+    # Place knights
+    board[0][1] = 'N'
+    board[0][6] = 'N'
+    board[7][1] = 'n'
+    board[7][6] = 'n'
+
+    # Place bishops
+    board[0][2] = 'B'
+    board[0][5] = 'B'
+    board[7][2] = 'b'
+    board[7][5] = 'b'
+
+    # Place rooks
+    board[0][0] = 'R'
+    board[0][7] = 'R'
+    board[7][0] = 'r'
+    board[7][7] = 'r'
+
+    # Place queens
+    board[0][3] = 'Q'
+    board[7][3] = 'q'
+
+    # Place kings
+    board[0][4] = 'K'
+    board[7][4] = 'k'
+# now, implement a function to display the board.
+def display_board(board):
+    for row in board:
+        print(' '.join(row))
+#now test the code to create the game board and display it.
+def test_chess():
+    board = create_board()
+    place_pieces(board)
+    display_board(board)
+
+test_chess()
